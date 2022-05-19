@@ -21,6 +21,7 @@ diceEl.classList.add("hidden");
 const scores = [0, 0];
 let currentScore = 0;
 let activePlayer = 0;
+let playing = true;
 
 let togglePlayer = () => {
   document.getElementById(`current--${activePlayer}`).textContent = 0;
@@ -32,47 +33,57 @@ let togglePlayer = () => {
 
 // Dice roll functionality
 rollBtn.addEventListener("click", function () {
-  // generate random dice roll
-  const dice = Math.trunc(Math.random() * 6) + 1;
-  console.log(dice);
-  //display dice
-  diceEl.classList.remove("hidden");
-  diceEl.src = `./assets/Dice-${dice}.png`;
-  //check for rolled 1, if true,
+  if (playing) {
+    // generate random dice roll
+    const dice = Math.trunc(Math.random() * 6) + 1;
+    console.log(dice);
+    //display dice
+    diceEl.classList.remove("hidden");
+    diceEl.src = `./assets/Dice-${dice}.png`;
+    //check for rolled 1, if true,
 
-  //   for (let i = 0; i < players.length; i++) {
-  if (dice !== 1) {
-    currentScore += dice;
-    document.getElementById(`current--${activePlayer}`).textContent =
-      currentScore;
-  } else {
-    //Switch to the next player
-    togglePlayer();
+    //   for (let i = 0; i < players.length; i++) {
+    if (dice !== 1) {
+      currentScore += dice;
+      document.getElementById(`current--${activePlayer}`).textContent =
+        currentScore;
+    } else {
+      //Switch to the next player
+      togglePlayer();
+    }
   }
 });
 
 holdBtn.addEventListener("click", function () {
-  //add current score to active player's score
-  scores[activePlayer] += currentScore;
-  console.log(currentScore);
+  if (playing) {
+    //add current score to active player's score
+    scores[activePlayer] += currentScore;
+    console.log(currentScore);
 
-  document.getElementById(`score--${activePlayer}`).textContent =
-    scores[activePlayer];
+    document.getElementById(`score--${activePlayer}`).textContent =
+      scores[activePlayer];
 
-  if (scores[activePlayer] >= 20) {
-    document
-      .querySelector(`.player--${activePlayer}`)
-      .classList.add("player--winner");
-    document.querySelector(`.win--${activePlayer}`).classList.remove("hidden");
-    document.querySelector(".dice").classList.add("hidden");
+    if (scores[activePlayer] >= 20) {
+      document
+        .querySelector(`.player--${activePlayer}`)
+        .classList.add("player--winner");
+      document
+        .querySelector(`.win--${activePlayer}`)
+        .classList.remove("hidden");
+      document.querySelector(".dice").classList.add("hidden");
+      document
+        .querySelector(`.player--${activePlayer}`)
+        .classList.remove("player--active");
 
-    document
-      .querySelector(`.player--${activePlayer}`)
-      .classList.remove("player--active");
-  } else {
-    togglePlayer();
+      playing = false;
+      //NOTE: another way to disable the buttons as opposed to the 'playing' state variable
+      // holdBtn.disabled = true;
+      // rollBtn.disabled = true;
+    } else {
+      togglePlayer();
+    }
+    //check if player's score is >= 100
+    //finish game
+    //switch to next player
   }
-  //check if player's score is >= 100
-  //finish game
-  //switch to next player
 });
