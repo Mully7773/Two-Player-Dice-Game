@@ -8,7 +8,6 @@ const currentScoreOneEl = document.getElementById("current--1");
 const player = document.querySelector(".player");
 const playerZero = document.querySelector(".player--0");
 const playerOne = document.querySelector(".player--1");
-// const activePlayer = document.querySelector(".player--active");
 const diceEl = document.querySelector(".dice");
 const rollBtn = document.querySelector(".btn--roll");
 const newBtn = document.querySelector(".btn--new");
@@ -22,6 +21,14 @@ diceEl.classList.add("hidden");
 const scores = [0, 0];
 let currentScore = 0;
 let activePlayer = 0;
+
+let togglePlayer = () => {
+  document.getElementById(`current--${activePlayer}`).textContent = 0;
+  currentScore = 0;
+  activePlayer = activePlayer === 0 ? 1 : 0;
+  playerOne.classList.toggle("player--active");
+  playerZero.classList.toggle("player--active");
+};
 
 // Dice roll functionality
 rollBtn.addEventListener("click", function () {
@@ -39,21 +46,33 @@ rollBtn.addEventListener("click", function () {
     document.getElementById(`current--${activePlayer}`).textContent =
       currentScore;
   } else {
-    document.getElementById(`current--${activePlayer}`).textContent = 0;
-    currentScore = 0;
-    activePlayer = activePlayer === 0 ? 1 : 0;
-    playerOne.classList.toggle("player--active");
-    playerZero.classList.toggle("player--active");
-
-    // document.quer(`current--${activePlayer}`).classList.remove("player--active");
-    // currentScoreZeroEl.textContent = currentScore;
-    // playerZero.classList.remove("player--active");
-    // playerOne.classList.add("player--active");
-    // let inactivePlayer = player.classList.remove("player--active");
-    // let activePlayer = player.classList.add("player--active");
-    // activePlayer = !activePlayer;
-    // switch to next player
-    //   activePlayer = !activePlayer;
+    //Switch to the next player
+    togglePlayer();
   }
-  //   }
+});
+
+holdBtn.addEventListener("click", function () {
+  //add current score to active player's score
+  scores[activePlayer] += currentScore;
+  console.log(currentScore);
+
+  document.getElementById(`score--${activePlayer}`).textContent =
+    scores[activePlayer];
+
+  if (scores[activePlayer] >= 20) {
+    document
+      .querySelector(`.player--${activePlayer}`)
+      .classList.add("player--winner");
+    document.querySelector(`.win--${activePlayer}`).classList.remove("hidden");
+    document.querySelector(".dice").classList.add("hidden");
+
+    document
+      .querySelector(`.player--${activePlayer}`)
+      .classList.remove("player--active");
+  } else {
+    togglePlayer();
+  }
+  //check if player's score is >= 100
+  //finish game
+  //switch to next player
 });

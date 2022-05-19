@@ -60,7 +60,7 @@ main {
 .score {
   font-size: 8rem;
   font-weight: 300;
-  color: #221b85;
+  color: #1b3d85;
   margin-bottom: auto;
 }
 
@@ -163,13 +163,25 @@ main {
   box-shadow: 0 4rem 5rem rgba(0, 0, 0, 0.2);
 }
 
+.win--0 {
+  margin-bottom: 60px;
+  font-size: 36px;
+  color: white;
+}
+.win--1 {
+  margin-bottom: 75px;
+  font-size: 36px;
+  color: white;
+}
+
 .player--winner {
   background-color: #2f2f2f;
 }
 
 .player--winner .name {
   font-weight: 700;
-  color: #c7365f;
+  color: #0e5f27;
+  text-decoration: underline;
 }
 
 .hidden {
