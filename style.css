@@ -232,3 +232,7 @@ main {
   backdrop-filter: blur(3px);
   z-index: 5;
 }
+
+p {
+  font-size: 14px;
+}
