@@ -12,7 +12,35 @@ const diceEl = document.querySelector(".dice");
 const rollBtn = document.querySelector(".btn--roll");
 const newBtn = document.querySelector(".btn--new");
 const holdBtn = document.querySelector(".btn--hold");
+const modal = document.querySelector(".modal");
+const overlay = document.querySelector(".overlay");
+const btnCloseModal = document.querySelector(".close-modal");
+const ruleBtn = document.querySelector(".btn--rules");
 
+//Rule button
+const openModal = () => {
+  modal.classList.remove("hidden");
+  overlay.classList.remove("hidden");
+};
+
+const closeModal = () => {
+  modal.classList.add("hidden");
+  overlay.classList.add("hidden");
+};
+
+ruleBtn.addEventListener("click", openModal);
+
+btnCloseModal.addEventListener("click", closeModal);
+
+document.addEventListener("keydown", function (e) {
+  console.log(e.key);
+  if (e.key === "Escape" && !modal.classList.contains("hidden")) {
+    //if the modal does not contain the class name 'hidden' then run closeModal
+    {
+      closeModal();
+    }
+  }
+});
 // Starting conditions
 
 let scores, currentScore, activePlayer, playing;
