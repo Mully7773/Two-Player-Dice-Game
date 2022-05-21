@@ -6,6 +6,7 @@
 ## Link:
 
 Play the game here:
+https://mully7773.github.io/Two-Player-Dice-Game/
 
 ## Description
 
