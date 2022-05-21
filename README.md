@@ -10,8 +10,8 @@ https://mully7773.github.io/Two-Player-Dice-Game/
 
 ## Description
 
-A fun dice game (AKA 'Pig') I built with HTML, CSS, and JavaScript that you can play with a friend.
-Like the Retro-Number-Guesser before it, this project was inspired by Jonas Schmedtmann's wonderful JavaScript course. Read how to play below.
+A fun dice game (AKA 'Pig') I built with HTML, CSS, and vanilla JavaScript that you can play with a friend.
+Like the Retro-Number-Guesser before it, this project was inspired by Jonas Schmedtmann's wonderful JavaScript course, and was created to practice DOM manipulation. Read how to play below.
 
 ![Screenshot of playing](./assets/asobi-chu.png)
 
