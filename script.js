@@ -140,6 +140,8 @@ newBtn.addEventListener("click", function () {
   document
     .querySelector(`.player--${activePlayer}`)
     .classList.remove("player--winner");
+
+  playerOne.classList.remove("player--active");
   // activePlayer = activePlayer === 1 ? 0 : 0;
   activePlayer = 0;
   document
