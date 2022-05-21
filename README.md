@@ -24,16 +24,20 @@ Like the Retro-Number-Guesser before it, this project was inspired by Jonas Schm
 1. Players repeatedly roll a die until either a 1 is rolled or the
    player clicks the 'Hold' button.
    <br />
-   <br /> 2) If a player rolls a 1, their current score is decreased to 0.
    <br />
-   <br /> 3) If a player rolls any other number, it is added to their current
+2. If a player rolls a 1, their current score is decreased to 0.
+   <br />
+   <br />
+3. If a player rolls any other number, it is added to their current
    total. The player may repeatedly roll the die until they accumulate a
    high current score to deposit into their overall score.
    <br />
-   <br /> 4) If a player clicks the 'Hold' button, their current total is added
+   <br />
+4. If a player clicks the 'Hold' button, their current total is added
    to their overall score, and it becomes the next player's turn.
    <br />
-   <br /> 5) The first player to reach an overall score of 100 or more points
+   <br />
+5. The first player to reach an overall score of 100 or more points
    wins. Note that in order to win, the player must click the 'Hold'
    button after they will pass the 100 point threshold.
    <br />
